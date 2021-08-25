@@ -1,0 +1,26 @@
+%h1 All Movies
+
+%table#movies
+    %thead
+        %tr
+            %th= link_to 'Movie Title', :sort_by=>'title'
+            %th= link_to 'Rating', :sort_by=>'rating'
+            %th= link_to 'Release Date', :sort_by=>'release_date'
+            %th More Info 
+    %tbody
+        - @movies.each do |movie|
+            %tr
+                %td= movie.title
+                %td= movie.rating
+                %td= movie.release_date
+                %td= link_to "More about #{movie.title}", movie_path(movie)
+                -# = debug(movie)
+                -# = movie.inspect
+        = link_to 'Add new movie', new_movie_path
+        
+= form_tag movies_path, :method => :get do
+    Include: 
+    - @all_ratings.each do |rating|
+        = rating
+        = check_box_tag "ratings[#{rating}]",1,@checked[rating]
+    = submit_tag 'Refresh'
