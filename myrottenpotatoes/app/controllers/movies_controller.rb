@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
         else
             ratings = @all_ratings
         end
-        # return movies provided by params[:sorty_by]
+        # return movies provided by params[:ratings]
         ratings
     end
     def show
