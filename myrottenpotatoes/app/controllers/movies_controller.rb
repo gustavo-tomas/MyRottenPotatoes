@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
     end
     def filter_ratings
         @checked = {'G'=>true,'PG'=>true,'PG-13'=>true,'R'=>true,'NC-17'=>true}
-        @all_ratings = ['G','PG','PG-13','R','NC-17']
+        @all_ratings = Movie.all_ratings
         ratings = []
         if params[:ratings].present?
             @all_ratings.each do |r|
