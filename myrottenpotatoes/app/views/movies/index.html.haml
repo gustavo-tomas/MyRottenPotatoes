@@ -24,3 +24,11 @@
         = rating
         = check_box_tag "ratings[#{rating}]",1,@checked[rating]
     = submit_tag 'Refresh'
+
+%h1 Search TMDb for a movie
+
+= form_tag :action => 'search_tmdb' do
+
+    %label{:for => 'search_terms'} Search Terms
+    = text_field_tag 'search_terms'
+    = submit_tag 'Search TMDb'
