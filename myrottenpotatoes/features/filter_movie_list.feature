@@ -8,16 +8,15 @@ Background: movies have been added to database
 
   Given the following movies exist:
   | title                   | rating | release_date |
-  | Aladdin                 | G      | 25-Nov-1992  |
-  | The Terminator          | R      | 26-Oct-1984  |
-  | When Harry Met Sally    | R      | 21-Jul-1989  |
+  | Star Wars               | PG-13  | 25-Apr-1997  |
+  | Requiem for a dream     | R      | 27-Oct-2000  |
   | The Help                | PG-13  | 10-Aug-2011  |
-  | Chocolat                | PG-13  | 5-Jan-2001   |
-  | Amelie                  | R      | 25-Apr-2001  |
-  | 2001: A Space Odyssey   | G      | 6-Apr-1968   |
-  | The Incredibles         | PG     | 5-Nov-2004   |
-  | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
-  | Chicken Run             | G      | 21-Jun-2000  |
+  | Aladdin                 | G      | 1-Nov-1992   |
+  | When Harry Met Sally    | R      | 21-Jul-1989  |
+  | Luca                    | PG     | 18-Jun-2021  |
+  | Django Unchained        | R      | 23-Aug-2026  |
+  | Tropa de Elite 2        | NC-17  | 31-Aug-2021  |
+  | Field of dreams         | PG     | 20-Sep-2016  |
 
   And  I am on the RottenPotatoes home page
   
@@ -25,30 +24,28 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   Given I check the following ratings: PG, R
   And I uncheck the following ratings: PG-13, G, NC-17
   And I press "Refresh"
-  Then I should not see "Aladdin"
-  And I should see "The Terminator"
-  And I should see "When Harry Met Sally"
+  Then I should not see "Star Wars"
+  And I should see "Requiem for a dream"
   And I should not see "The Help"
-  And I should not see "Chocolat"
-  And I should see "Amelie"
-  And I should not see "2001: A Space Odyssey"
-  And I should see "The Incredibles"
-  And I should see "Raiders of the Lost Ark"
-  And I should not see "Chicken Run"
+  And I should not see "Aladdin"
+  And I should see "When Harry Met Sally"
+  And I should see "Luca"
+  And I should see "Django Unchained"
+  And I should not see "Tropa de Elite 2"
+  And I should see "Field of dreams"
 
 Scenario: no ratings selected
 Given I uncheck the following ratings: PG, G, R, PG-13, NC-17
   And I press "Refresh"
-  Then I should not see "Aladdin"
-  And I should not see "The Terminator"
-  And I should not see "When Harry Met Sally"
-  And I should not see "Chocolat"
+  Then I should not see "Star Wars"
+  And I should not see "Requiem for a dream"
   And I should not see "The Help"
-  And I should not see "Amelie"
-  And I should not see "2001: A Space Odyssey"
-  And I should not see "The Incredibles"
-  And I should not see "Raiders of the Lost Ark"
-  And I should not see "Chicken Run"
+  And I should not see "Aladdin"
+  And I should not see "When Harry Met Sally"
+  And I should not see "Luca"
+  And I should not see "Django Unchained"
+  And I should not see "Tropa de Elite 2"
+  And I should not see "Field of dreams"
 
 Scenario: all ratings selected
 Given I check the following ratings: PG, G, R, PG-13, NC-17
