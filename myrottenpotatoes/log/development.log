@@ -24186,3 +24186,241 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 5271)
 
 
+Started GET "/movies?commit=Refresh" for ::1 at 2021-09-02 08:12:09 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Parameters: {"commit"=>"Refresh"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (8.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 33.8ms | Allocations: 10541)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 142.8ms | Allocations: 20691)
+Completed 200 OK in 169ms (Views: 138.0ms | ActiveRecord: 10.5ms | Allocations: 24034)
+
+
+Started GET "/movies?sort_by=title" for ::1 at 2021-09-02 08:12:11 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"sort_by"=>"title"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?) ORDER BY title[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.4ms | Allocations: 1888)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 7.3ms | Allocations: 4831)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 5323)
+
+
+Started GET "/movies?sort_by=rating" for ::1 at 2021-09-02 08:12:12 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"sort_by"=>"rating"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?) ORDER BY rating[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 4.6ms | Allocations: 1864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 9.6ms | Allocations: 4805)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.3ms | Allocations: 5951)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for ::1 at 2021-09-02 08:12:13 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1320)
+
+
+  
+NoMethodError (undefined method `rating' for #<ActionController::Parameters:0x00007fc5b802cda0>):
+  
+app/controllers/movies_controller.rb:15:in `block in filter_ratings'
+app/controllers/movies_controller.rb:13:in `each'
+app/controllers/movies_controller.rb:13:in `filter_ratings'
+app/controllers/movies_controller.rb:4:in `index'
+Started GET "/rails/info/routes" for ::1 at 2021-09-02 08:18:33 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/guga/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/guga/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/guga/.rvm/gems/ruby-2.7.2/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [35 times] (Duration: 75.1ms | Allocations: 4018)
+  Rendered /home/guga/.rvm/gems/ruby-2.7.2/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 27.0ms | Allocations: 946)
+  Rendered /home/guga/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 151.5ms | Allocations: 8975)
+  Rendered layout /home/guga/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb (Duration: 164.6ms | Allocations: 9194)
+Completed 200 OK in 187ms (Views: 167.1ms | Allocations: 10372)
+
+
+Started GET "/rails/info/routes" for ::1 at 2021-09-02 08:18:34 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /home/guga/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb
+  Rendering /home/guga/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/guga/.rvm/gems/ruby-2.7.2/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [35 times] (Duration: 7.9ms | Allocations: 4005)
+  Rendered /home/guga/.rvm/gems/ruby-2.7.2/gems/actionpack-6.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 1.2ms | Allocations: 732)
+  Rendered /home/guga/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 14.7ms | Allocations: 8425)
+  Rendered layout /home/guga/.rvm/gems/ruby-2.7.2/gems/railties-6.1.4/lib/rails/templates/layouts/application.html.erb (Duration: 15.6ms | Allocations: 8642)
+Completed 200 OK in 18ms (Views: 16.9ms | Allocations: 9671)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for ::1 at 2021-09-02 08:28:50 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/movies_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 9.7ms | Allocations: 8345)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 15.5ms | Allocations: 14265)
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 0.6ms | Allocations: 16801)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for ::1 at 2021-09-02 08:29:03 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+Completed 500 Internal Server Error in 2ms (Allocations: 1414)
+
+
+  
+NoMethodError (undefined method `ratings' for #<ActionController::Parameters:0x000056291e30ab40>):
+  
+app/controllers/movies_controller.rb:15:in `block in filter_ratings'
+app/controllers/movies_controller.rb:13:in `each'
+app/controllers/movies_controller.rb:13:in `filter_ratings'
+app/controllers/movies_controller.rb:4:in `index'
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for ::1 at 2021-09-02 08:29:07 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+Completed 500 Internal Server Error in 1ms (Allocations: 1408)
+
+
+  
+NoMethodError (undefined method `rating' for #<ActionController::Parameters:0x000056291e4b3d20>):
+  
+app/controllers/movies_controller.rb:15:in `block in filter_ratings'
+app/controllers/movies_controller.rb:13:in `each'
+app/controllers/movies_controller.rb:13:in `filter_ratings'
+app/controllers/movies_controller.rb:4:in `index'
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for ::1 at 2021-09-02 08:29:16 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/movies_controller.rb:6:in `index'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 7.1ms | Allocations: 5029)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 10.9ms | Allocations: 7941)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.9ms | Allocations: 10036)
+
+
+Started GET "/" for ::1 at 2021-09-15 08:42:44 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/movies" for ::1 at 2021-09-15 08:42:44 -0300
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 22.1ms | Allocations: 10530)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 117.2ms | Allocations: 20679)
+Completed 200 OK in 148ms (Views: 118.9ms | ActiveRecord: 0.7ms | Allocations: 24027)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&commit=Refresh" for ::1 at 2021-09-15 08:42:47 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}, "commit"=>"Refresh"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.2ms | Allocations: 1931)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 5.7ms | Allocations: 4872)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.3ms | Allocations: 5398)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BR%5D=1&commit=Refresh" for ::1 at 2021-09-15 08:42:49 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "R"=>"1"}, "commit"=>"Refresh"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "R"], ["rating", "G"], ["rating", "PG"], ["rating", "R"], ["rating", "G"], ["rating", "PG"], ["rating", "R"], ["rating", "G"], ["rating", "PG"], ["rating", "R"], ["rating", "G"], ["rating", "PG"], ["rating", "R"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.3ms | Allocations: 1768)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 6.8ms | Allocations: 4711)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms | Allocations: 5235)
+
+
+Started GET "/movies?sort_by=rating" for ::1 at 2021-09-15 08:42:50 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"sort_by"=>"rating"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?) ORDER BY rating[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 4.0ms | Allocations: 1877)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 7.6ms | Allocations: 4820)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 5311)
+
+
+Started GET "/movies?sort_by=release_date" for ::1 at 2021-09-15 08:42:53 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"sort_by"=>"release_date"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?) ORDER BY release_date[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.8ms | Allocations: 1874)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 10.5ms | Allocations: 4817)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.3ms | Allocations: 5308)
+
+
+Started GET "/movies?sort_by=title" for ::1 at 2021-09-15 08:42:54 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"sort_by"=>"title"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?) ORDER BY title[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.1ms | Allocations: 1864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 6.4ms | Allocations: 4808)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.3ms | Allocations: 5288)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1&ratings%5BNC-17%5D=1&commit=Refresh" for ::1 at 2021-09-15 08:43:03 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1", "NC-17"=>"1"}, "commit"=>"Refresh"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"], ["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 4.2ms | Allocations: 2022)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 8.5ms | Allocations: 4963)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.4ms | Allocations: 5497)
+
+
+Started GET "/movies?sort_by=rating" for ::1 at 2021-09-15 08:43:04 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"sort_by"=>"rating"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?) ORDER BY rating[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.6ms | Allocations: 1864)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 8.1ms | Allocations: 4805)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 5285)
+
+
