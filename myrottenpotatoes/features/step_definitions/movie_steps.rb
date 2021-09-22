@@ -13,13 +13,42 @@ end
 
 Given('I check all ratings') do
     within('#ratings_form') do
-        page.check('ratings_G')
-        page.check('ratings_PG')
-        page.check('ratings_PG-13')
-        page.check('ratings_R')
-        page.check('ratings_NC-17')
+        assert check('ratings_G')
+        assert check('ratings_PG')
+        assert check('ratings_PG-13')
+        assert check('ratings_R')
+        assert check('ratings_NC-17')
     end
-#   pending # Write code here that turns the phrase above into concrete actions
+    # pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given('I check the following ratings: {}') do |string|
+    ratings_list = string.gsub(/\s+/,"").split(',')
+    ratings_list.each do |rating|
+        printf("\nRATING = ratings_#{rating}")
+        assert check("ratings_#{rating}")
+    end
+    # pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given('I uncheck the following ratings: {}') do |string|
+    ratings_list = string.gsub(/\s+/,"").split(',')
+    ratings_list.each do |rating|
+        printf("RATING = #{rating}\n") 
+        assert uncheck("ratings_#{rating}")
+    end
+    # pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then('I should see all of the movies') do
+    title_list = ["Star Wars", "Requiem for a dream", "The Help", "Aladdin", "When Harry Met Sally",
+    "Luca", "Django Unchained", "Tropa de Elite 2", "Field of dreams"]
+    title_list.each do |title|
+        printf("YE? = #{assert has_text?(title)}\n") # assert has_content?(title)
+    end
+    # printf("\nCONTENT = #{page.body}\n")
+
+    pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then('I should see {string} before {string}') do |string, string2|
