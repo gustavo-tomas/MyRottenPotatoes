@@ -8,16 +8,15 @@ Background: movies have been added to database
   
   Given the following movies exist:
   | title                   | rating | release_date |
-  | Aladdin                 | G      | 25-Nov-1992  |
-  | The Terminator          | R      | 26-Oct-1984  |
-  | When Harry Met Sally    | R      | 21-Jul-1989  |
+  | Star Wars               | PG-13  | 25-Apr-1997  |
+  | Requiem for a dream     | R      | 27-Oct-2000  |
   | The Help                | PG-13  | 10-Aug-2011  |
-  | Chocolat                | PG-13  | 5-Jan-2001   |
-  | Amelie                  | R      | 25-Apr-2001  |
-  | 2001: A Space Odyssey   | G      | 6-Apr-1968   |
-  | The Incredibles         | PG     | 5-Nov-2004   |
-  | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
-  | Chicken Run             | G      | 21-Jun-2000  |
+  | Aladdin                 | G      | 1-Nov-1992   |
+  | When Harry Met Sally    | R      | 21-Jul-1989  |
+  | Luca                    | PG     | 18-Jun-2021  |
+  | Django Unchained        | R      | 23-Aug-2026  |
+  | Tropa de Elite 2        | NC-17  | 31-Aug-2021  |
+  | Field of dreams         | PG     | 20-Sep-2016  |
 
   And I am on the RottenPotatoes home page
   And I check all ratings
@@ -25,8 +24,8 @@ Background: movies have been added to database
 
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
-  Then I should see "Aladdin" before "Amelie"
+  Then I should see "Aladdin" before "Star Wars"
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
-  Then I should see "2001: A Space Odyssey" before "The Incredibles"
+  Then I should see "When Harry Met Sally" before "The Help"
