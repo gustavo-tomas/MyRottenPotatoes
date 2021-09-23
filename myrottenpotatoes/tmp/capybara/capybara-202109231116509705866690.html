@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RottenPotatoes!</title>
+<link rel="stylesheet" media="screen" href="/assets/application-0b896f2093b3c5312c35e1178b4ebcf44109114d47c145698eaf8fa5ceec449b.css" />
+<script src="/packs-test/js/application-dd998cb6b794ecb7e8af.js" data-turbolinks-track="reload"></script>
+
+</head>
+<body>
+<div id='main'>
+<h1>All Movies</h1>
+<table id='movies'>
+<thead>
+<tr>
+<th><a href="/movies?sort_by=title">Movie Title</a></th>
+<th><a href="/movies?sort_by=rating">Rating</a></th>
+<th><a href="/movies?sort_by=release_date">Release Date</a></th>
+<th>More Info</th>
+</tr>
+</thead>
+<tbody>
+<a href="/movies/new">Add new movie</a>
+</tbody>
+</table>
+<form id="ratings_form" action="/movies" accept-charset="UTF-8" method="get">
+Include:
+G
+<input type="checkbox" name="ratings[G]" id="ratings_G" value="1" checked="checked" />
+PG
+<input type="checkbox" name="ratings[PG]" id="ratings_PG" value="1" checked="checked" />
+PG-13
+<input type="checkbox" name="ratings[PG-13]" id="ratings_PG-13" value="1" checked="checked" />
+R
+<input type="checkbox" name="ratings[R]" id="ratings_R" value="1" checked="checked" />
+NC-17
+<input type="checkbox" name="ratings[NC-17]" id="ratings_NC-17" value="1" checked="checked" />
+<input type="submit" name="commit" value="Refresh" id="ratings_submit" data-disable-with="Refresh" />
+</form>
+
+<h1>Search TMDb for a movie</h1>
+<form action="/movies/search_tmdb" accept-charset="UTF-8" method="post">
+<label for='search_terms'>Search Terms</label>
+<input type="text" name="search_terms" id="search_terms" />
+<input type="submit" name="commit" value="Search TMDb" data-disable-with="Search TMDb" />
+</form>
+
+
+</div>
+</body>
+</html>

@@ -48,9 +48,7 @@ Then('I should see all of the movies') do
 end
 
 Then('I should see {string} before {string}') do |string, string2|
-    # within_table('movies') do
-    #     printf("ROWS = #{}")
-    #     assert(page.find("Alladin"))
-    # end
-    pending # Write code here that turns the phrase above into concrete actions
+    assert have_content(string)
+    assert have_content(string2)
+    # pending # Write code here that turns the phrase above into concrete actions
 end
