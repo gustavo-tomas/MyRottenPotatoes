@@ -59,6 +59,7 @@ group :test do
   gem 'rspec-rails'      # added in section 8.2
   gem 'guard-rspec' 
   gem 'ZenTest'
+  gem 'rails-controller-testing'  # rails complaining again
 end
 
 gem 'themoviedb'         # to use the movie db api

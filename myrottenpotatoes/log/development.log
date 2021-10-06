@@ -25908,3 +25908,95 @@ Processing by MoviesController#index as HTML
 Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 5503)
 
 
+Started GET "/all-appointments" for ::1 at 2021-10-06 11:01:39 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/all-appointments"):
+  
+Started GET "/" for ::1 at 2021-10-06 11:01:47 -0300
+Started GET "/movies" for ::1 at 2021-10-06 11:01:47 -0300
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 36.4ms | Allocations: 11337)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 107.7ms | Allocations: 21459)
+Completed 200 OK in 113ms (Views: 108.3ms | ActiveRecord: 1.0ms | Allocations: 24253)
+
+
+Started GET "/movies" for ::1 at 2021-10-06 11:20:00 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 11.9ms | Allocations: 11387)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 29.8ms | Allocations: 21515)
+Completed 200 OK in 38ms (Views: 31.2ms | ActiveRecord: 0.6ms | Allocations: 24850)
+
+
+Started GET "/movies/search_tmdb" for ::1 at 2021-10-06 11:20:06 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"search_tmdb"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:28:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1485)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie with 'id'=search_tmdb):
+  
+app/controllers/movies_controller.rb:28:in `show'
+Started GET "/movies/search" for ::1 at 2021-10-06 11:20:13 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"search"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:28:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1172)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Movie with 'id'=search):
+  
+app/controllers/movies_controller.rb:28:in `show'
+Started GET "/movies/" for ::1 at 2021-10-06 11:20:16 -0300
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.9ms | Allocations: 2122)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 8.3ms | Allocations: 5174)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.3ms | Allocations: 5733)
+
+
+Started POST "/movies/search_tmdb" for ::1 at 2021-10-06 11:20:18 -0300
+Processing by MoviesController#search_tmdb as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "search_terms"=>"asdf", "commit"=>"Search TMDb"}
+  Rendering layout layouts/application.html.haml
+  Rendering movies/search_tmdb.html.haml within layouts/application
+  Rendered movies/search_tmdb.html.haml within layouts/application (Duration: 1.4ms | Allocations: 1387)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 5.6ms | Allocations: 4221)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 4775)
+
+
+Started GET "/movies/" for ::1 at 2021-10-06 11:20:22 -0300
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN (?, ?, ?, ?, ?)[0m  [["rating", "G"], ["rating", "PG"], ["rating", "PG-13"], ["rating", "R"], ["rating", "NC-17"]]
+  ↳ app/views/movies/index.html.haml:11
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.5ms | Allocations: 1994)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.haml (Duration: 7.3ms | Allocations: 4918)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 5376)
+
+
