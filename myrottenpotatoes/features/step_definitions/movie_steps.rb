@@ -47,7 +47,6 @@ Then('I should see all of the movies') do
     # pending # Write code here that turns the phrase above into concrete actions
 end
 
-# Wont pass cus of rails but logic is valid
 Then('I should see {string} before {string}') do |string, string2|
     assert(page.html.index(string) < page.html.index(string2))
     # pending # Write code here that turns the phrase above into concrete actions

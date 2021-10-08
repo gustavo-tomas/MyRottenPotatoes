@@ -23,4 +23,8 @@ describe MoviesController do
       end
     end
   end
+  describe 'adding a new Movie' do
+    it 'shows the view of Add new movie' do
+    end
+  end
 end
