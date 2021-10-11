@@ -38,7 +38,7 @@ class MoviesController < ApplicationController
     end
     def movie_params
         if params[:movie]
-            params.require(:movie).permit(:title, :rating, :release_date)
+            params.require(:movie).permit(:title, :rating, :release_date, :director)
         end
     end
     def edit

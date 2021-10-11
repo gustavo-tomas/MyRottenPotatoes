@@ -6,6 +6,7 @@
             %th= link_to 'Movie Title', :sort_by=>'title'
             %th= link_to 'Rating', :sort_by=>'rating'
             %th= link_to 'Release Date', :sort_by=>'release_date'
+            %th= 'Director'
             %th More Info 
     %tbody
         - @movies.each do |movie|
@@ -13,6 +14,7 @@
                 %td= movie.title
                 %td= movie.rating
                 %td= movie.release_date
+                %td= movie.director
                 %td= link_to "More about #{movie.title}", movie_path(movie)
                 -# = debug(movie)
                 -# = movie.inspect
